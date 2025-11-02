@@ -3,49 +3,42 @@ import 'package:flutter/material.dart';
 import 'package:quiz_app/show_text.dart';
 
 class StartScreen extends StatelessWidget{
-  const StartScreen(this.color1, this.color2, {super.key});
+  const StartScreen(this.startQuiz, {super.key});
 
-
-  final Color color1;
-  final Color color2;
-
-  void start_quiz(){
-
-  }
+  final void Function() startQuiz;
+  
 
   @override
   Widget build(context){
-    return Container(
-          decoration: BoxDecoration(
-            gradient: 
-            LinearGradient(colors: [
-              color1,
-              color2,
-            ],
-            begin: AlignmentGeometry.topLeft,      
-            end: AlignmentGeometry.bottomRight,
-            ),
-          ),
-          child: Center(
+    return Center(
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
                 Image.asset('images/quiz-logo.png',
-                width: 300,
-                height: 300,),
+                  width: 300,
+                  height: 300,
+                  color: const Color.fromARGB(150, 255, 255, 255),),
+                // ),
+                // Opacity(
+                //   opacity: 0.4,
+                //   child: Image.asset('images/quiz-logo.png',
+                //   width: 300,
+                //   height: 300,),
+                // ),
                 SizedBox(height: 50,),
                 ShowText("Learn Flutter the fun way!"),
                 SizedBox(height: 30,),
-                ElevatedButton(
-                  style: ElevatedButton.styleFrom(
+                OutlinedButton.icon(
+                  style: OutlinedButton.styleFrom(
                     shape: LinearBorder(),
+                    foregroundColor: Colors.white
                   ),
-                  onPressed: start_quiz, child: 
-                  ShowText("Start Quiz"),
+                  onPressed: startQuiz,
+                  icon: Icon(Icons.arrow_right_alt), 
+                  label: Text("Start Quiz"),
                 ),
               ],
               ),
-            ),
-        );
+            );
   }
 }
