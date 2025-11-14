@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+
 import 'package:quiz_app/show_text.dart';
 
 class StartScreen extends StatelessWidget{
@@ -14,7 +15,7 @@ class StartScreen extends StatelessWidget{
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Image.asset('images/quiz-logo.png',
+                Image.asset('assets/images/quiz-logo.png',
                   width: 300,
                   height: 300,
                   color: const Color.fromARGB(150, 255, 255, 255),),
